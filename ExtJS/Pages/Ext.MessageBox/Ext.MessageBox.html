@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <meta charset="utf-8" />
+    <link href="../../Scripts/ext-4.2.1.883/resources/ext-theme-neptune/ext-theme-neptune-all.css" rel="stylesheet" />
+    <script src="../../Scripts/ext-4.2.1.883/ext-all.js"></script>
+    <script src="../../Scripts/ext-4.2.1.883/locale/ext-lang-zh_CN.js"></script>
+    <script src="Ext.MessageBox.js"></script>
+</head>
+<body>
+    <div style="padding: 10px;">
+        <a href="../../Default.html">首页</a><br />
+        <input type="button" onclick="ShowMsg()" value="Ext.MessageBox.alert('消息', '您好！')" />
+        <input type="button" onclick="ShowMsg2()" value="使用JSON对象配置组件" /><br />
+        <input type="button" onclick="Confirm()" value="Ext.MessageBox.confirm" />
+        <input type="button" onclick="Prompt()" value="Ext.MessageBox.prompt" />
+        <input type="button" onclick="Wait()" value="Ext.MessageBox.wait" /><br />
+        <input type="button" onclick="Show()" value="Ext.MessageBox.show" />
+        <input type="button" onclick="Show2()" value="Ext.MessageBox.show 改变按钮文字" /><br />
+        <input type="button" onclick="Show3()" value="Ext.MessageBox.show 动态改变按钮文字" />
+        <input type="button" onclick="Show4()" value="Ext.MessageBox.show 动态改变进度条" /><br />
+        <input type="button" onclick="RenderTo()" value="renderTo" /><br />
+        <div id="ProgressBar1"></div>
+        <input type="button" onclick="AutoProcessBar()" value="Auto ProcessBar" /><br />
+        <div id="ProgressBar2"></div>
+    </div>
+</body>
+</html>
