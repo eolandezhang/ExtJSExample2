@@ -1,5 +1,5 @@
 ﻿/// <reference path="~/Scripts/ext-4.2.1.883/ext-all-dev.js" />
-var baseUrl = "http://" + window.location.hostname + "/ExtJS.WebApi/api/";
+var baseUrl = "http://" + window.location.hostname + "/ExtJSProject.WebApi/api/";
 Ext.onReady(function () {
 
     Ext.regModel('PostInfo',
@@ -26,9 +26,8 @@ Ext.onReady(function () {
     {
         model: 'BookInfo',
         proxy: {
-            type: 'ajax', 
-            url: baseUrl + 'Book/Get',
-            //url:'book.json',
+            type: 'ajax',
+            url: baseUrl + 'Book/GetByName',
             reader: { type: 'json' }
         }
     });
@@ -42,7 +41,7 @@ Ext.onReady(function () {
         bodyStyle: {
             padding: '10px'
         },
-        width: 400,
+        //width: 400,
         frame: true,
         renderTo: 'form',
         defaultType: 'textfield',
@@ -152,18 +151,153 @@ Ext.onReady(function () {
             fieldLabel: '书籍列表',
             listConfig: {
                 loadingText: '正在加载书籍信息',
-                emptyText: '未能找到匹配值',
-                maxHeight: 160,
-               
+                emptyText: '未能找到匹配值'
             },
-
             triggerAction: 'all',
             store: bookStore,
             displayField: "Name",
             valueField: "Name",
-            //mode: 'local',
             queryMode: 'remote',
-            queryDelay: 300
+            queryDelay: 300,
+            allQuery: '',
+            queryParam: 'name',
+            minChars: 1
+        }, {
+            fieldLabel: '时间选择框',
+            xtype: 'timefield',
+            //width: 220,
+            mstTarget: 'side',
+            autoFitErrors: false,
+            maxValue: '18:00',
+            maxText: '时间应该小于{0}',
+            minValue: '10:00',
+            minText: '10:00',
+            //pickerMaxHeight: 70,
+            increment: 60,
+            format: 'G时i分s秒',
+            invalidText: '时间格式无效'
+        }, {
+            fieldLabel: '日期选择框',
+            xtype: 'datefield',
+            msgTarget: 'side',
+            autoFitErrors: false,
+            format: 'Y年m月d日',
+            maxValue: '12/31/2008',
+            minValue: '01/01/2008',
+            disableDates: ['2008年03月12日'],
+            disableDatesText: '禁止选择该日期',
+            disableDays: [0, 6],
+            disabledDaysText: '禁止选择该日期',
+            value: '12/31/2008'
+        }, {
+            name: 'age',
+            xtype: 'hidden'
+        }, {
+            fieldLabel: 'HTML字段',
+            xtype: 'htmleditor',
+            width: 800,
+            height: 150,
+            value: 'ExtJS4',
+            createLinkText: '创建超链接',
+            defaultLinkValue: 'http://',
+            enableAlignments: true,
+            enableColors: true,
+            enableFont: true,
+            enableFontSize: true,
+            enableFormat: true,
+            enableLinks: true,
+            enableLists: true,
+            enableSourceEdit: true,
+            fontFamilies: ['宋体', '隶书', '黑体']
+        }, {
+            fieldLabel: '展示字段',
+            xtype: 'displayfield',
+            value: '<b>ExtJS4登场'
+        }, {
+            xtype: 'label',
+            forId: 'title',
+            text: '昵称'
+        }, {
+            name: 'title',
+            xtype: 'textfield',
+            inputId: 'title',
+            hideLabel: true
+        }, {
+            title: '产品信息',
+            xtype: 'fieldset',
+            collapsible: true,
+            bodyPadding: 5,
+            checkboxToggle: true,
+            checkboxName: 'description',
+            items: [{
+                xtype: 'textfield',
+                fieldLabel: '产地'
+            }, {
+                xtype: 'textfield',
+                fieldLabel: '售价'
+            }]
+        }, {
+            fieldLabel: '商品名称'
+        }, {
+            xtype: 'fieldcontainer',
+            fieldLabel: '生产日期',
+            hideLabel: false,
+            layout: {
+                type: 'hbox',
+                align: 'middle'
+            },
+            combineErrors: true,
+            fieldDefaults: {
+                hideLabel: true,
+                allowBlank: false
+            },
+            defaultType: 'textfield',
+            items: [{
+                fieldLabel: '年',
+                flex: 1,
+                inputId: 'yearId'
+            }, {
+                xtype: 'label',
+                forId: 'yearId',
+                text: '年'
+            }, {
+                fieldLabel: '月',
+                flex: 1,
+                inputId: 'monthId'
+            }, {
+                xtype: 'label',
+                forId: 'monthId',
+                text: '月'
+            }, {
+                fieldLabel: '日',
+                flex: 1,
+                inputId: 'dayId'
+            }, {
+                xtype: 'label',
+                forId: 'dayId',
+                text: '日'
+            }
+            ]
+        }, {
+            fieldLabel: '产地来源'
+        }, {
+            xtype: 'filefield',
+            name: 'photo',
+            fieldLabel: '照片',
+            anchor: '100%',
+            buttonText: '选择照片...'
+        }, {
+            fieldLabel: '电子邮件',
+            vtype: 'email'
+        }, {
+            fieldLabel: '网址',
+            vtype: 'url'
+        }, {
+            fieldLabel: '字母',
+            vtype: 'alpha'
+        }, {
+            fieldLabel: '字母和数字',
+            vtype: 'alphanum'
         }
         ],
         buttons: [

@@ -1,5 +1,5 @@
 ﻿/// <reference path="~/Scripts/ext-4.2.1.883/ext-all-dev.js" />
-var baseUrl = "http://" + window.location.hostname + "/ExtJS.WebApi/api/";
+var baseUrl = "http://" + window.location.hostname + "/ExtJSProject.WebApi/api/";
 Ext.onReady(function () {
 
     Ext.QuickTips.init();
